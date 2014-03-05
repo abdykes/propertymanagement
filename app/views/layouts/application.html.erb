@@ -1,14 +1,144 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Propertymanagement</title>
+  <!-- This goes in the document HEAD so IE7 and IE8 don't cry -->
+  <!--[if lt IE 9]>
+  <style type="text/css">
+      table.gradienttable th {
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5e3e4', endColorstr='#b3c8cc',GradientType=0 );
+          position: relative;
+          z-index: -1;
+      }
+      table.gradienttable td {
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebecda', endColorstr='#ceceb7',GradientType=0 );
+          position: relative;
+          z-index: -1;
+      }
+  </style>
+  <![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Property Management</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+<!-- HTML Template from: http://opensourcetemplates.org/preview/surf-company-template/ -->
 </head>
+
 <body>
 
-<%= yield %>
+<div id="wrapper">
+  <div id="content">
+
+    <div id="header">
+      <h1><a href="#">Property Management</a></h1>
+    </div><!-- header -->
+
+    <div id="menu">
+      <ul>
+        <li class="selected"><a href="/users">Home</a> /</li>
+        <li><a href="/users/new">Register</a> /</li>
+        <li><a href="#">Blah</a> /</li>
+        <li><a href="#">Blah</a> /</li>
+        <li><a href="#">Blah</a></li>
+      </ul>
+    </div><!--menu-->
+
+    <div id="container">
+      <div id="flashmessage">
+        <%= notice %>
+      </div>
+
+      <div id="sidebar">
+
+        <h4>Sidebar</h4>
+
+        <h3><a href="#" class="str">Thing 1</a></h3>
+        <p>Lots of critical information goes here</p>
+
+        <h3><a href="#" class="str">Thing 2</a></h3>
+
+        <p>YAY!</p>
+      </div><!--sidebar-->
+
+      <div id="main">
+        <%= yield %>
+      </div><!--main-->
+
+
+
+      <div style="clear:both;"></div>
+    </div><!--container-->
+
+    <div id="slider">
+
+      <!-- "previous page" action -->
+      <a class="prevPage browse left"></a>
+
+      <!-- root element for scrollable -->
+      <div class="scrollable" id="infinite">
+
+        <!-- root element for the items -->
+        <div class="items">
+
+          <!-- 1-5 -->
+          <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" alt="" border="0"/>
+          <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" alt="" border="0"/>
+          <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" alt="" border="0"/>
+
+          <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" alt="" border="0"/>
+          <img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" alt="" border="0"/>
+
+          <!-- 5-10 -->
+          <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" alt="" border="0"/>
+          <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" alt="" border="0"/>
+          <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" alt="" border="0"/>
+          <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" alt="" border="0"/>
+          <img src="http://farm1.static.flickr.com/50/117346182_1fded507fa_t.jpg" alt="" border="0"/>
+
+          <!-- 10-15 -->
+
+          <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" alt="" border="0"/>
+          <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" alt="" border="0"/>
+          <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" alt="" border="0" />
+          <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" alt="" border="0"/>
+          <img src="http://farm4.static.flickr.com/3624/3323893148_8318838fbd_t.jpg" alt="" border="0"/>
+
+
+        </div>
+
+      </div>
+
+      <!-- "next page" action -->
+      <a class="nextPage browse right"></a>
+
+
+      <img src="/assets/baner.jpg" alt="" border="0" />
+
+    </div><!-- slier -->
+
+    <div id="footer">
+      <span>&copy;2010 Surf Company</span>
+
+      <ul>
+        <li><a href="#">Home</a> |</li>
+        <li><a href="#">Site Map</a> |</li>
+        <li><a href="#">Accessibility</a> |</li>
+        <li><a href="#">Contact</a> |</li>
+        <li><a href="http://vectorart.org">Design by Vector</a></li>
+      </ul>
+
+    </div><!--footer-->
+
+  </div><!-- content -->
+
+</div><!-- wrapper -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#infinite").scrollable().circular();
+    });
+</script>
+
 
 </body>
 </html>
