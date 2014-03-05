@@ -1,4 +1,12 @@
 Propertymanagement::Application.routes.draw do
+  resources :properties
+
+  resources :units
+
+  resources :leases
+
+  resources :repair_requests
+
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
