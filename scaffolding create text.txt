@@ -4,3 +4,9 @@ rails generate scaffold RepairRequest open_date:date close_date:date request_det
 rails generate scaffold Lease start_date:date end_date:date rent:integer
 rails generate scaffold Unit name:string square_feet:integer
 rails generate scaffold Property name:string address:string city:string state:string zip:string
+
+rails generate migration add_fieldname_to_Lease unit_id:integer
+MODIFY LEASE MODEL TO ADD BELONGS_TO
+rails generate migration add_fieldname_to_Unit property_id:integer
+MODIFY UNIT MODEL TO ADD BELONGS_TO
+rails generate migration add_fieldname_to_User lease_id:integer
