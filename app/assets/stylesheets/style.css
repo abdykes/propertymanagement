@@ -347,3 +347,6 @@ a.disabled {
 	visibility:hidden !important;		
 } 	
 
+#notice {
+    color: green;
+}

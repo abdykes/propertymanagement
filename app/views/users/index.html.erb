@@ -1,7 +1,12 @@
 <% content_for :title do %>
-All Registered Users
+    <% if current_user %>
+        All Registered Users
+    <% else %>
+        Welcome
+    <% end %>
 <% end %>
 
+<% if current_user %>
 <table class="gradienttable">
   <thead>
     <tr>
@@ -27,7 +32,5 @@ All Registered Users
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
-
-<%= link_to 'New User', new_user_path %>
