@@ -35,7 +35,7 @@
 
     <div id="menu">
       <ul>
-        <li class="selected"><a href="/users">Home</a> /</li>
+        <li class="selected"><%= link_to("Home", root_url) %></li>
         <li><a href="/users/new">Register</a> /</li>
         <li><a href="#">Blah</a> /</li>
         <li><a href="#">Blah</a> /</li>
@@ -44,23 +44,20 @@
     </div><!--menu-->
 
     <div id="container">
-      <div id="flashmessage">
-        <%= notice %>
-      </div>
 
       <div id="sidebar">
-
-        <h4>Sidebar</h4>
-
-        <h3><a href="#" class="str">Thing 1</a></h3>
-        <p>Lots of critical information goes here</p>
-
-        <h3><a href="#" class="str">Thing 2</a></h3>
-
-        <p>YAY!</p>
+        <% if content_for?(:sidebar) %>
+            <%= yield :sidebar %>
+        <% end %>
       </div><!--sidebar-->
 
       <div id="main">
+
+        <h1>
+          <%= yield :title %>
+          <p id="notice"><%= notice %></p>
+          <p />
+        </h1>
         <%= yield %>
       </div><!--main-->
 
