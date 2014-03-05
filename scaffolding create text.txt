@@ -1,0 +1,1 @@
+rails generate scaffold User username:string email:string crypted_password:string password_salt:string persistence_token:string
