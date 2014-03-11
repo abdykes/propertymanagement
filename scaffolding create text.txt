@@ -10,3 +10,8 @@ MODIFY LEASE MODEL TO ADD BELONGS_TO
 rails generate migration add_fieldname_to_Unit property_id:integer
 MODIFY UNIT MODEL TO ADD BELONGS_TO
 rails generate migration add_fieldname_to_User lease_id:integer
+rails generate scaffold UserSession username:string password:string
+
+2014-03-08
+rails generate model Role name:string
+rails generate migration create_roles_users role_id:integer user_id:integer

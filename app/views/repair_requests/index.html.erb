@@ -1,4 +1,4 @@
-<h1>Listing repair_requests</h1>
+<h1>Listing Repair Requests</h1>
 
 <table class="gradienttable">
   <thead>
@@ -17,21 +17,46 @@
 
   <tbody>
     <% @repair_requests.each do |repair_request| %>
+    <% if (repair_request.submitter_id == current_user.attributes['id']) || (current_user.has_role? :manager) %>
       <tr>
         <td><%= repair_request.open_date %></td>
         <td><%= repair_request.close_date %></td>
         <td><%= repair_request.request_details %></td>
         <td><%= repair_request.request_response %></td>
-        <td><%= repair_request.submitter_id %></td>
-        <td><%= repair_request.responder_id %></td>
-        <td><%= link_to 'Show', repair_request %></td>
-        <td><%= link_to 'Edit', edit_repair_request_path(repair_request) %></td>
-        <td><%= link_to 'Destroy', repair_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if repair_request.submitter_id != nil %>
+          <%= User.find(repair_request.submitter_id).username %>
+          <% end %>
+        </td>
+        <td>
+          <% if repair_request.responder_id != nil %>
+          <%= User.find(repair_request.responder_id).username %>
+          <% end %>
+        </td>
+        <td>
+        <% if can? :read, repair_request %>
+            <%= link_to 'Show', repair_request %></td>
+        <% end %>
+        </td>
+        <td>
+          <% if can? :manage, repair_request %>
+              <%= link_to 'Edit', edit_repair_request_path(repair_request) %>
+          <% end %>
+        </td>
+          <td>
+            <% if can? :manage, repair_request %>
+                <%= link_to 'Destroy', repair_request, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </td>
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Repair request', new_repair_request_path %>
+<% if current_user %>
+    <% if current_user.has_role? :renter %>
+        <%= link_to 'New Repair request', new_repair_request_path %>
+    <% end %>
+<% end %>

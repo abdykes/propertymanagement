@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1063653780">
+    <data-source source="LOCAL" name="Rails propertymanagement: development" uuid="7d18caa0-4dbe-4bf6-b7c0-f373cefb7524">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\dykes_000\Dropbox\IUPUI\CIT 436 SP 14\propertymanagement\db\development.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails propertymanagement: test" uuid="268c6343-331a-47fc-a43e-fb3a4ee894b3">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\dykes_000\Dropbox\IUPUI\CIT 436 SP 14\propertymanagement\db\test.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

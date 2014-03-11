@@ -1,6 +1,8 @@
 class RepairRequestsController < ApplicationController
   before_action :set_repair_request, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource #convenience method from cancan
+
   # GET /repair_requests
   # GET /repair_requests.json
   def index
@@ -26,6 +28,12 @@ class RepairRequestsController < ApplicationController
   def create
     @repair_request = RepairRequest.new(repair_request_params)
 
+    if current_user
+      if current_user.has_role? :renter
+        @repair_request[:submitter_id] = current_user.attributes['id']
+      end
+    end
+
     respond_to do |format|
       if @repair_request.save
         format.html { redirect_to @repair_request, notice: 'Repair request was successfully created.' }
@@ -40,6 +48,13 @@ class RepairRequestsController < ApplicationController
   # PATCH/PUT /repair_requests/1
   # PATCH/PUT /repair_requests/1.json
   def update
+
+    if current_user
+      if current_user.has_role? :manager
+        @repair_request[:responder_id] = current_user.attributes['id']
+      end
+    end
+
     respond_to do |format|
       if @repair_request.update(repair_request_params)
         format.html { redirect_to @repair_request, notice: 'Repair request was successfully updated.' }

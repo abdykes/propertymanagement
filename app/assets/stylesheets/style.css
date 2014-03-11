@@ -347,6 +347,11 @@ a.disabled {
 	visibility:hidden !important;		
 } 	
 
-#notice {
+p#notice {
     color: green;
+}
+
+p#error {
+    color: red;
+    font-size: 18px;
 }

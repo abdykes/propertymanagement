@@ -22,12 +22,16 @@
 
 <p>
   <strong>Submitter:</strong>
-  <%= @repair_request.submitter_id %>
+  <% if @repair_request.submitter_id != nil %>
+  <%= User.find(@repair_request.submitter_id).username %>
+  <% end %>
 </p>
 
 <p>
   <strong>Responder:</strong>
-  <%= @repair_request.responder_id %>
+  <% if @repair_request.responder_id != nil %>
+  <%= User.find(@repair_request.responder_id).username %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_repair_request_path(@repair_request) %> |
