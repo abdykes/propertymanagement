@@ -15,3 +15,11 @@ rails generate scaffold UserSession username:string password:string
 2014-03-08
 rails generate model Role name:string
 rails generate migration create_roles_users role_id:integer user_id:integer
+
+2014-03-30
+rails generate scaffold Payment amount:integer ip_address:string first_name:string last_name:string card_expires_on:date
+rails generate migration add_user_id_to_payment user_id:integer
+rails generate model PaymentTransaction response:text
+rails generate migration add_payment_id_to_payment_transactions payment_id:integer
+rails generate migration add_first_name_to_user first_name:string
+rails generate migration add_last_name_to_user last_name:string

@@ -14,18 +14,21 @@
 
   <tbody>
     <% @leases.each do |lease| %>
-      <tr>
-        <td><%= lease.start_date %></td>
-        <td><%= lease.end_date %></td>
-        <td><%= lease.rent %></td>
-        <td><%= link_to 'Show', lease %></td>
-        <td><%= link_to 'Edit', edit_lease_path(lease) %></td>
-        <td><%= link_to 'Destroy', lease, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if (repair_request.submitter_id == current_user.attributes['id']) || (current_user.has_role? :manager) %>
+          <tr>
+            <td><%= lease.start_date %></td>
+            <td><%= lease.end_date %></td>
+            <td><%= lease.rent %></td>
+            <td><%= link_to 'Show', lease %></td>
+            <td><%= link_to 'Edit', edit_lease_path(lease) %></td>
+            <td><%= link_to 'Destroy', lease, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+       <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if can? :create, Lease %>
 <%= link_to 'New Lease', new_lease_path %>
+<% end %>

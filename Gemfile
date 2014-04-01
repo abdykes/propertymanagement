@@ -40,6 +40,9 @@ end
 
 gem 'cancan'
 
+#Add AM
+gem 'activemerchant'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

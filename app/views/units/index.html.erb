@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Square feet</th>
+      <th>Property</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,11 @@
       <tr>
         <td><%= unit.name %></td>
         <td><%= unit.square_feet %></td>
+        <td>
+          <% if unit.property_id? %>
+            <%= Property.find(unit.property_id).name %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', unit %></td>
         <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
         <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,5 +31,6 @@
 </table>
 
 <br>
-
+<% if can? :create, Unit %>
 <%= link_to 'New Unit', new_unit_path %>
+<% end %>

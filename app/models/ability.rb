@@ -13,7 +13,9 @@ class Ability
       can :manage, thisuser
       can :create, RepairRequest
       can :manage, RepairRequest
-      can :manage, Lease
+      can :index, Lease
+      can :index, Unit
+      can :index, Property
     else
       can :create, :all
       can :index, :all

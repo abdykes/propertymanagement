@@ -19,6 +19,14 @@
     <%= f.label :square_feet %><br>
     <%= f.number_field :square_feet %>
   </div>
+    <div class="field">
+      <%= f.label :property_id %><br>
+      <% if :property_id? %>
+        <%= f.collection_select :property_id, Property.order(:name), :id, :name, {:include_blank => "Please Select"} %>
+      <% else %>
+        <%= f.collection_select :property_id, Property.order(:name), :id, :name, {:include_blank => "Please Select"} %>
+      <% end %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>
