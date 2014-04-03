@@ -14,7 +14,7 @@
 
   <tbody>
     <% @leases.each do |lease| %>
-      <% if (repair_request.submitter_id == current_user.attributes['id']) || (current_user.has_role? :manager) %>
+      <% if (current_user.has_role? :manager) %>
           <tr>
             <td><%= lease.start_date %></td>
             <td><%= lease.end_date %></td>

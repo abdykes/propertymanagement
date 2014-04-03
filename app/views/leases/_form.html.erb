@@ -23,7 +23,12 @@
     <%= f.label :rent %><br>
     <%= f.number_field :rent %>
   </div>
+    <div class="field">
+      <%= f.label :unit_id %><br>
+      <%= ListHelp::UnitProp.new(@lease.unit_id).selbox.html_safe %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

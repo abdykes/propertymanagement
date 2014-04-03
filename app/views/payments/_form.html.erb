@@ -13,7 +13,11 @@
 
   <div class="field">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <% if current_user.lease.rent? %>
+        <%= f.text_field :amount, :value => current_user.lease.rent %>
+    <% else %>
+        <%= f.text_field :amount %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :first_name %><br>

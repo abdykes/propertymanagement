@@ -35,6 +35,18 @@
       <%= f.label :password_confirmation %><br>
       <%= f.password_field :password_confirmation %>
     </div>
+    <div class="field">
+    <% if current_user %>
+        <% if current_user.has_role? :manager %>
+      <%= f.label :lease_id %><br>
+              <%= ListHelp::UserProp.new(@user.lease_id).selbox2.html_safe %>
+
+        <% else %>
+            <%= f.label :lease_id %><br>
+            <%= ListHelp::GetPropName.new(@user.lease.unit_id).value %>
+        <% end %>
+    <% end %>
+    </div>
 
     <% if current_user %>
     <% if current_user.has_role? :manager %>

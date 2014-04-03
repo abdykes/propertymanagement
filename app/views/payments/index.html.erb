@@ -9,27 +9,25 @@
       <th>Last name</th>
       <th>Card expires on</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @payments.each do |payment| %>
-      <tr>
-        <td><%= payment.amount %></td>
-        <td><%= payment.ip_address %></td>
-        <td><%= payment.first_name %></td>
-        <td><%= payment.last_name %></td>
-        <td><%= payment.card_expires_on %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if (payment.user_id == current_user.attributes['id']) || (current_user.has_role? :manager) %>
+          <tr>
+            <td><%= payment.amount %></td>
+            <td><%= payment.ip_address %></td>
+            <td><%= payment.first_name %></td>
+            <td><%= payment.last_name %></td>
+            <td><%= payment.card_expires_on %></td>
+            <td><%= link_to 'Show', payment %></td>
+          </tr>
+       <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Payment', new_payment_path %>
+<%= link_to 'Make a Payment', new_payment_path %>
